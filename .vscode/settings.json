@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "VL.C": "cpp",
+        "BANNER.C": "cpp",
+        "BRUSHLESS.C": "cpp",
+        "ESTRATEGIA.C": "cpp",
+        "LEDS.C": "cpp",
+        "MEDICIONES.C": "cpp",
+        "PANTALLA.C": "cpp",
+        "QTR.C": "cpp",
+        "USB.C": "cpp",
+        "WIFI.C": "cpp",
+        "banner.h": "c",
+        "VL.H": "cpp"
+    }
+}
