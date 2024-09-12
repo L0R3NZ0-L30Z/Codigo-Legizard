@@ -11,6 +11,7 @@
         "USB.C": "cpp",
         "WIFI.C": "cpp",
         "banner.h": "c",
-        "VL.H": "cpp"
+        "VL.H": "cpp",
+        "OTAPrograming.C": "cpp"
     }
 }
