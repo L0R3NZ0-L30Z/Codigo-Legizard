@@ -23,15 +23,17 @@ void setup()
     if (devMode)
     {
         ota.init(ssid, password)
-            WIFI.init(ssid, password)
+        WIFI.init(ssid, password)
     }
-
-    motors.init(17, 24, 25, 31);
-    // motors.drive(motors.M1, 50);
+    
+    QTR.init(4, 5, 38, 39); //QTR. 
+    motors.init(17, 24, 25, 31); // motors.drive(motors.M1, 50); 
+    
 }
 
 void loop()
 {
+    
     if (devMode) ota.check();
     if (enPelea) ESTRATEGIA.inicio(direccion);
 }

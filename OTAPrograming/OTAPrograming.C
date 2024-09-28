@@ -57,7 +57,7 @@ int OTA::init(const char *ssid, const char *password)
         } });
 
     ArduinoOTA.begin();
-    return 1;
+    return 0;
 }
 
 void OTA::check()

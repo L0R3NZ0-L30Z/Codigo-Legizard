@@ -25,7 +25,7 @@ int WIFI::init(const char *ssid, const char *password)
     else
     {
         Serial.println("Failed to connect to WiFi");
-        return 0; 
+        return 1; 
     }
 }
 
