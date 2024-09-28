@@ -2,12 +2,16 @@
 #define BRUSHLESS_H
 
 #include <Arduino.h>
+#include <ESP32Servo.h>  
 
-class  BRUSHLESS {
+class BRUSHLESS {
 public:
     BRUSHLESS(); 
-    int init(); 
-    int drive(int M1, int M2, int M3, int M4);
+    void init(int pinM1, int pinM2, int pinM3, int pinM4); 
+    void drive(ESP32PWM& motor, int speed);
+
+private:
+    ESP32PWM M1, M2, M3, M4;  
 };
 
 #endif

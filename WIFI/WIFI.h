@@ -2,12 +2,13 @@
 #define WIFI_H
 
 #include <Arduino.h>
+#include <WiFi.h>
+#include <ESPAsyncWebServer.h>
 
 class  WIFI {
 public:
     WIFI(); 
-    int init(); 
-    //void doSomething();
+    int init(ssid, password); 
 };
 
 #endif

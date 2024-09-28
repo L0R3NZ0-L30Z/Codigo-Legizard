@@ -8,12 +8,25 @@
 #include "USB/USB.h"
 #include "VL/VL.h"
 #include "WIFI/WIFI.h"
+#include "OTAPrograming/OTAPrograming.h"
+
+
+char Log[] = 0 
+const char* ssid = "SSID";
+const char* password = "PASSWORD";
 
 void setup(){
+    Serial.begin(115200);
 
+    ota.init(ssid, password)
+    
+    motors.init(17, 24, 25, 31);
+    // motors.drive(motors.M1, 50); 
+    
 }
 
 void loop(){
-    
+    ota.check();
+
 }
 
