@@ -10,23 +10,28 @@
 #include "WIFI/WIFI.h"
 #include "OTAPrograming/OTAPrograming.h"
 
+char Log[] = 0 const char *ssid = "SSID";
+const char *password = "PASSWORD";
 
-char Log[] = 0 
-const char* ssid = "SSID";
-const char* password = "PASSWORD";
+bool devMode = true;
+bool enPelea = false;
 
-void setup(){
+void setup()
+{
     Serial.begin(115200);
 
-    ota.init(ssid, password)
-    
+    if (devMode)
+    {
+        ota.init(ssid, password)
+            WIFI.init(ssid, password)
+    }
+
     motors.init(17, 24, 25, 31);
-    // motors.drive(motors.M1, 50); 
-    
+    // motors.drive(motors.M1, 50);
 }
 
-void loop(){
-    ota.check();
-
+void loop()
+{
+    if (devMode) ota.check();
+    if (enPelea) ESTRATEGIA.inicio(direccion);
 }
-

@@ -6,7 +6,7 @@
 class  ESTRATEGIA {
 public:
     ESTRATEGIA();  
-    int estrategia();//dentro de los parentesis van los van los valores a pasa a la funcion
+    int inicio(int direccion);//dentro de los parentesis van los van los valores a pasa a la funcion
 };
 
 #endif
