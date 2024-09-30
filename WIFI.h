@@ -1,4 +1,4 @@
-#ifndef WIFI_H
+/* #ifndef WIFI_H
 #define WIFI_H
 
 #include <Arduino.h>
@@ -8,7 +8,7 @@
 class  WIFI {
 public:
     WIFI(); 
-    int init(ssid, password); 
+    int init(const char* ssid, const char* password); 
 };
 
-#endif
+#endif */

@@ -1,12 +1,35 @@
-#include "ESTRATEGIA.h"
+#include "OTAPrograming.h"
+#include "BrushlessMotor.h"
 
-ESTRATEGIA::ESTRATEGIA() {
+BrushlessMotor M1(17);
+BrushlessMotor M2(24);
+BrushlessMotor M3(25);
+BrushlessMotor M4(31);
+
+const char *ssid = "SSID";
+const char *password = "PASSWORD";
+
+bool devMode = true;
+
+OTA ota;
+
+void setup() {
+  Serial.begin(115200);
+  ota.init(ssid, password); 
+
+  M1.init();
+  M2.init();
+  M3.init();
+  M4.init();
 
 }
 
+void loop() {
+  ota.check(); 
+  //M1.drive(50);
+}
 
-int ESTRATEGIA::inicio(int direccion) {
-    /*
+/*   /*
     Direccion:
     numero que llega | posicion horaria
             1        =      12
@@ -17,7 +40,7 @@ int ESTRATEGIA::inicio(int direccion) {
             6        =      7.5
             7        =      9
             8        =      10.5
-    */
+    
    delay(5000);
    switch (direccion)
    {
@@ -79,8 +102,4 @@ int ESTRATEGIA::inicio(int direccion) {
    
    default:
    return 0;
-    break;
-   }
-   
-
-} 
+    break; */

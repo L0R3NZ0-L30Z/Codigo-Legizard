@@ -7,7 +7,7 @@ class  VL {
 public:
     VL(); 
     int init(); 
-    float medir-VL(int direccion);
+    float medir(int direccion);
 };
 
 #endif

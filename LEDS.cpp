@@ -5,6 +5,6 @@ LEDS::LEDS() {
 }
 
 
-bool LEDS::colorLeds(int COLOR) {
+int LEDS::colorLeds(int COLOR) {
 
 } 

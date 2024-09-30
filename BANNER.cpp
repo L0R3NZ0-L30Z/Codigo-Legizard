@@ -9,6 +9,6 @@ int BANNER::init() {
 }
 
 
-void BANNER::medir(int M1, int M2, int M3, int M4) {
+float BANNER::medir() {
 
 } 

@@ -1,42 +1,43 @@
+#include "OTAPrograming.h"
+#include <WiFi.h>
 #include <ArduinoOTA.h>
 
-OTA::OTA()
-{
+OTA::OTA() {
 }
 
-int OTA::init(const char *ssid, const char *password)
-{
+int OTA::init(const char *ssid, const char *password) {
+    WiFi.begin(ssid, password);  // Use WiFi here
 
-    OTA.begin(ssid, password);
-
-    while (OTA.status() != WL_CONNECTED)
-    {
+    while (WiFi.status() != WL_CONNECTED) {  // Check WiFi connection status
         delay(500);
         Serial.print(".");
     }
 
-    Serial.println("Connected to OTA");
+    Serial.println("Connected to WiFi");
 
     ArduinoOTA.setPort(8266);
     ArduinoOTA.setHostname("esp32_s3");
     ArduinoOTA.setPassword("1234");
 
-    ArduinoOTA.onStart([]()
-                       {
+    ArduinoOTA.onStart([]() {
         String type;
         if (ArduinoOTA.getCommand() == U_FLASH) {
             type = "sketch";
-        } else { 
+        } else {
             type = "filesystem";
         }
-        
-        Serial.println("Start updating " + type); });
-    ArduinoOTA.onEnd([]()
-                     { Serial.println("\nEnd"); });
-    ArduinoOTA.onProgress([](unsigned int progress, unsigned int total)
-                          { Serial.printf("Progress: %u%%\r", (progress / (total / 100))); });
-    ArduinoOTA.onError([](ota_error_t error)
-                       {
+        Serial.println("Start updating " + type);
+    });
+
+    ArduinoOTA.onEnd([]() {
+        Serial.println("\nEnd");
+    });
+
+    ArduinoOTA.onProgress([](unsigned int progress, unsigned int total) {
+        Serial.printf("Progress: %u%%\r", (progress / (total / 100)));
+    });
+
+    ArduinoOTA.onError([](ota_error_t error) {
         Serial.printf("Error[%u]: ", error);
         switch (error) {
             case OTA_AUTH_ERROR:
@@ -54,13 +55,13 @@ int OTA::init(const char *ssid, const char *password)
             case OTA_END_ERROR:
                 Serial.println("End Failed");
                 break;
-        } });
+        }
+    });
 
     ArduinoOTA.begin();
     return 0;
 }
 
-void OTA::check()
-{
+void OTA::check() {
     ArduinoOTA.handle();
 }

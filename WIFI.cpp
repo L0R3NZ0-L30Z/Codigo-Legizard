@@ -1,4 +1,4 @@
-#include "WIFI.h"
+/* #include "WIFI.h"
 #include <WiFi.h>
 #include <ESPAsyncWebServer.h>
 
@@ -80,3 +80,4 @@ void handleLogPage(AsyncWebServerRequest *request)
 
     request->send(200, "text/html", html);
 }
+ */
