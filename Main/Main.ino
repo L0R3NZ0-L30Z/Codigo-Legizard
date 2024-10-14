@@ -1,5 +1,7 @@
-#include "OTAPrograming.h"
+#include "Logger.h"
+/* #include "OTAPrograming.h"
 #include "BrushlessMotor.h"
+#include <WiFi.h>
 
 BrushlessMotor M1(17);
 BrushlessMotor M2(24);
@@ -10,22 +12,38 @@ const char *ssid = "SSID";
 const char *password = "PASSWORD";
 
 bool devMode = true;
-
+bool Fight = false;
+int Log = 0; // 0=NADA, 1=ERRORES, 2=TODO
 OTA ota;
+
+
+void disableWiFi() {
+  WiFi.disconnect(true);   
+  WiFi.mode(WIFI_OFF);     
+  btStop();                
+  esp_wifi_deinit();       
+} */
+Logger logger;
 
 void setup() {
   Serial.begin(115200);
-  ota.init(ssid, password); 
+  logger.init(false, true, 1, "SSID", "PASSWORD");
+  /*   ota.init(Fight, devMode, Log, ssid, password); 
 
   M1.init();
   M2.init();
   M3.init();
-  M4.init();
-
+  M4.init(); */
 }
 
 void loop() {
-  ota.check(); 
+
+    logger.logMessage(false, true, 1, 1, "Test");
+    delay(500);
+  /*   if(Fight || !devMode){
+    disableWiFi();
+  }
+  ota.check();  */
   //M1.drive(50);
 }
 
