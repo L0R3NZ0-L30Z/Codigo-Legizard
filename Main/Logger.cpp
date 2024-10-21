@@ -1,4 +1,4 @@
-#include "Logger.h"
+/* #include "Logger.h"
 
 Logger::Logger()
   : server(80), events("/events") {}
@@ -62,3 +62,4 @@ void Logger::logMessage(bool fightMode, bool devMode, int logLevel, int state, S
     events.send(message.c_str(), "message", millis() / 1000);
   }
 }
+ */

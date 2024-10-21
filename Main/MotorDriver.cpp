@@ -11,11 +11,11 @@ bool MotorDriver::init() {
   ledcAttach(_pin, 50, 12);   
   
   delay(100);
-  ledcWrite(0, 410); 
+  ledcWrite(_pin, 410); 
   delay(500);
-  ledcWrite(0, 205);  
+  ledcWrite(_pin, 205);  
   delay(500);
-  ledcWrite(0, 306);  
+  ledcWrite(_pin, 306);  
   delay(500);
 
   return true;
@@ -24,5 +24,5 @@ bool MotorDriver::init() {
 void MotorDriver::drive(int value) {
   value = constrain(value, -100, 100);
   int pwmValue = map(value, -100, 100, 205, 410);
-  ledcWrite(0, pwmValue);  
+  ledcWrite(_pin, pwmValue);  
 }

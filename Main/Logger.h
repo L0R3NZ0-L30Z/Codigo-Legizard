@@ -1,4 +1,4 @@
-#ifndef Logger_H
+/* #ifndef Logger_H
 #define Logger_H
 
 #include <Arduino.h>
@@ -18,3 +18,4 @@ private:
 };
 
 #endif
+ */
